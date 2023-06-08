@@ -8,7 +8,7 @@ import {
 import { useTabs } from "./useTabs";
 
 export const usePage = () => {
-  const [value, setValue] = useState(1);
+  const [value, setValue] = useState(0);
   const { handleTabsChange, tabIndex } = useTabs();
   const [generateRowAndColumns, setGenerateRowAndColumns] = useState<
     number[][] | number[]

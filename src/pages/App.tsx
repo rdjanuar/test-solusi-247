@@ -49,7 +49,7 @@ function App() {
       <Header />
       <Tabs index={tabIndex} onChange={handleTabsChange}>
         <TabList>
-          <Tab isDisabled={tabIndex > 0}>Input</Tab>
+          <Tab isDisabled={tabIndex > 0 && value > 0}>Input</Tab>
           <Tab isDisabled={tabIndex > 1}>Table</Tab>
           <Tab isDisabled={!is3rdTabIndexDisabled}>Generate</Tab>
         </TabList>
@@ -83,9 +83,6 @@ function App() {
             <HStack>
               <Button colorScheme="cyan" onClick={handleGenerate}>
                 Generate
-              </Button>
-              <Button onClick={() => handleTabsChange(2)} colorScheme="teal">
-                Next
               </Button>
             </HStack>
             {generateRowAndColumns.length > 0 && (
