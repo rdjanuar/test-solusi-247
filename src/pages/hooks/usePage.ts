@@ -52,7 +52,7 @@ export const usePage = () => {
 
   const handleReset = () => {
     setGenerateRowAndColumns([]);
-    setValue(1);
+    setValue(0);
     handleTabsChange(0);
     setLowestValueMissingNumbers(null!);
   };
