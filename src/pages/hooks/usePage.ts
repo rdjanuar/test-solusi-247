@@ -1,3 +1,4 @@
+/* eslint-disable @typescript-eslint/no-non-null-assertion */
 import { useEffect, useMemo, useRef, useState } from "react";
 import {
   generateRandomNumber,
@@ -13,8 +14,7 @@ export const usePage = () => {
     number[][] | number[]
   >([]);
   const [lowestValueMissingNumbers, setLowestValueMissingNumbers] =
-    useState<number>(0);
-  // eslint-disable-next-line @typescript-eslint/no-non-null-assertion
+    useState<number>(null!);
   const ref = useRef<HTMLInputElement>(null!);
 
   const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
@@ -50,6 +50,13 @@ export const usePage = () => {
     [generateRowAndColumns]
   );
 
+  const handleReset = () => {
+    setGenerateRowAndColumns([]);
+    setValue(1);
+    handleTabsChange(0);
+    setLowestValueMissingNumbers(null!);
+  };
+
   useEffect(() => {
     if (ref.current) {
       ref.current.focus();
@@ -60,6 +67,7 @@ export const usePage = () => {
     ref,
     lowestValueMissingNumbers,
     lowestValueOfPositiveNumber,
+    handleReset,
     handlePositiveNumber,
     generateRowAndColumns,
     tabIndex,

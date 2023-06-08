@@ -39,6 +39,7 @@ function App() {
     lowestValueMissingNumbers,
     lowestValueOfPositiveNumber,
     handleGenerate,
+    handleReset,
   } = usePage();
 
   const is3rdTabIndexDisabled: boolean = generateRowAndColumns.length > 0;
@@ -121,8 +122,13 @@ function App() {
           </TabPanel>
           <TabPanel>
             <VStack align="start">
-              <Button colorScheme="teal" onClick={handlePositiveNumber}>
-                Generate Missing Value
+              <Button
+                colorScheme="teal"
+                onClick={
+                  lowestValueMissingNumbers ? handleReset : handlePositiveNumber
+                }
+              >
+                {lowestValueMissingNumbers ? "Reset" : "Generate Missing Value"}
               </Button>
               <Text>
                 Generated Missing Value:{" "}
